@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<UPDATED_CODE><!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
@@ -615,9 +615,249 @@
             }
         }
 
+        /* Modern Akış Diyagramı Stilleri */
+        .modern-flow-diagram {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            margin: 15px 0;
+            padding: 15px;
+            background: linear-gradient(135deg, rgba(21, 101, 192, 0.02), rgba(196, 30, 58, 0.02));
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+        }
+
+        .flow-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: linear-gradient(135deg, var(--primary-color), var(--ktu-red));
+            color: white;
+            padding: 8px 12px;
+            border-radius: 12px;
+            min-width: 80px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .flow-step:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.25);
+        }
+
+        .flow-step.start-step {
+            background: linear-gradient(135deg, #4caf50, #2e7d32);
+        }
+
+        .flow-step.decision-step {
+            background: linear-gradient(135deg, #ff9800, #f57c00);
+            border-radius: 50%;
+            width: 70px;
+            height: 70px;
+            justify-content: center;
+        }
+
+        .flow-step.error-step {
+            background: linear-gradient(135deg, #f44336, #c62828);
+        }
+
+        .flow-step.telegram-step {
+            background: linear-gradient(135deg, #2196f3, #1565c0);
+        }
+
+        .flow-step.success-step {
+            background: linear-gradient(135deg, #4caf50, #2e7d32);
+            font-size: 10px;
+            padding: 6px 8px;
+            min-width: 60px;
+        }
+
+        .flow-step.final-step {
+            background: linear-gradient(135deg, #9c27b0, #6a1b9a);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .step-icon {
+            font-size: 16px;
+            margin-bottom: 2px;
+        }
+
+        .step-text {
+            font-size: 9px;
+            font-weight: 600;
+            text-align: center;
+            line-height: 1.1;
+        }
+
+        .flow-arrow-down {
+            width: 2px;
+            height: 15px;
+            background: linear-gradient(to bottom, var(--primary-color), var(--ktu-red));
+            position: relative;
+        }
+
+        .flow-arrow-down::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: -3px;
+            border-left: 4px solid transparent;
+            border-right: 4px solid transparent;
+            border-top: 6px solid var(--ktu-red);
+        }
+
+        .flow-arrow-left {
+            width: 20px;
+            height: 2px;
+            background: linear-gradient(to left, var(--primary-color), var(--ktu-red));
+            position: relative;
+            margin: 10px 0;
+        }
+
+        .flow-arrow-left::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: -3px;
+            border-top: 4px solid transparent;
+            border-bottom: 4px solid transparent;
+            border-right: 6px solid var(--ktu-red);
+        }
+
+        .flow-branch {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin: 5px 0;
+        }
+
+        .branch-left {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+        }
+
+        .branch-right {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+        }
+
+        .flow-parallel {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 10px 0;
+        }
+
+        .parallel-item {
+            flex: 1;
+            min-width: 60px;
+        }
+
+        .flow-metrics {
+            background: linear-gradient(135deg, rgba(196, 30, 58, 0.1), rgba(21, 101, 192, 0.1));
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 15px;
+            width: 100%;
+        }
+
+        .flow-metrics h4 {
+            color: var(--ktu-red);
+            margin-bottom: 8px;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        .metric-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 5px;
+            font-size: 10px;
+        }
+
+        .metric-label {
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .metric-value {
+            background: linear-gradient(135deg, var(--primary-color), var(--ktu-red));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: bold;
+            font-size: 11px;
+        }
+
+        /* Responsive Akış Diyagramı */
+        @media (max-width: 768px) {
+            .flow-step {
+                min-width: 70px;
+                padding: 6px 10px;
+            }
+            
+            .step-icon {
+                font-size: 14px;
+            }
+            
+            .step-text {
+                font-size: 8px;
+            }
+            
+            .flow-parallel {
+                flex-direction: column;
+                gap: 5px;
+            }
+        }
+
+        /* Animasyonlar */
+        .flow-step {
+            animation: fadeInUp 0.6s ease forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .flow-step:nth-child(1) { animation-delay: 0.1s; }
+        .flow-step:nth-child(2) { animation-delay: 0.2s; }
+        .flow-step:nth-child(3) { animation-delay: 0.3s; }
+        .flow-step:nth-child(4) { animation-delay: 0.4s; }
+        .flow-step:nth-child(5) { animation-delay: 0.5s; }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Hover Efektleri */
+        .modern-flow-diagram:hover .flow-step {
+            opacity: 0.7;
+        }
+
+        .modern-flow-diagram:hover .flow-step:hover {
+            opacity: 1;
+            transform: translateY(-3px) scale(1.1);
+        }
     </style>
 </head>
 <body>
+    
     <div class="poster">
         <header class="header">
             <div class="ktu-logo">
@@ -1110,43 +1350,119 @@ Proje/
                 </div>
             </div>
 
-            <!-- Gelecek Geliştirmeler -->
+            
+
+            <!-- Modern Akış Diyagramı -->
             <div class="section third-width">
-                <h2>🚀 Gelecek Geliştirmeler</h2>
+                <h2>🔄 Sistem Akış Diyagramı</h2>
                 
-                <h3>🤖 AI İyileştirmeleri</h3>
-                <ul>
-                    <li><strong>Derin Öğrenme:</strong> CNN tabanlı modeller</li>
-                    <li><strong>Canlılık Tespiti:</strong> Sahte yüz koruması</li>
-                    <li><strong>Yaş Tanıma:</strong> Demografik analiz</li>
-                    <li><strong>Duygu Analizi:</strong> Yüz ifadesi tanıma</li>
-                    <li><strong>Çoklu Yüz:</strong> Aynı anda birden fazla kişi</li>
-                </ul>
+                <div class="modern-flow-diagram">
+                    <!-- Ana Akış -->
+                    <div class="flow-step start-step">
+                        <div class="step-icon">🚀</div>
+                        <div class="step-text">Sistem Başlat</div>
+                    </div>
+                    
+                    <div class="flow-arrow-down"></div>
+                    
+                    <div class="flow-step">
+                        <div class="step-icon">📷</div>
+                        <div class="step-text">Kamera Aktif</div>
+                    </div>
+                    
+                    <div class="flow-arrow-down"></div>
+                    
+                    <div class="flow-step decision-step">
+                        <div class="step-icon">🔍</div>
+                        <div class="step-text">Yüz Tespit?</div>
+                    </div>
+                    
+                    <div class="flow-branch">
+                        <div class="branch-left">
+                            <div class="flow-arrow-left"></div>
+                            <div class="flow-step error-step">
+                                <div class="step-icon">❌</div>
+                                <div class="step-text">Tekrar Dene</div>
+                            </div>
+                        </div>
+                        
+                        <div class="branch-right">
+                            <div class="flow-arrow-down"></div>
+                            <div class="flow-step">
+                                <div class="step-icon">🧠</div>
+                                <div class="step-text">Yüz Tanıma</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flow-arrow-down"></div>
+                    
+                    <div class="flow-step decision-step">
+                        <div class="step-icon">👤</div>
+                        <div class="step-text">Kullanıcı OK?</div>
+                    </div>
+                    
+                    <div class="flow-arrow-down"></div>
+                    
+                    <div class="flow-step telegram-step">
+                        <div class="step-icon">📱</div>
+                        <div class="step-text">Telegram Kod</div>
+                    </div>
+                    
+                    <div class="flow-arrow-down"></div>
+                    
+                    <div class="flow-step decision-step">
+                        <div class="step-icon">🔐</div>
+                        <div class="step-text">2FA Doğru?</div>
+                    </div>
+                    
+                    <div class="flow-arrow-down"></div>
+                    
+                    <div class="flow-parallel">
+                        <div class="parallel-item">
+                            <div class="flow-step success-step">
+                                <div class="step-icon">🔧</div>
+                                <div class="step-text">Servo 1</div>
+                            </div>
+                        </div>
+                        <div class="parallel-item">
+                            <div class="flow-step success-step">
+                                <div class="step-icon">⚙️</div>
+                                <div class="step-text">Servo 2</div>
+                            </div>
+                        </div>
+                        <div class="parallel-item">
+                            <div class="flow-step success-step">
+                                <div class="step-icon">🔩</div>
+                                <div class="step-text">Servo 3</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flow-arrow-down"></div>
+                    
+                    <div class="flow-step final-step">
+                        <div class="step-icon">🚪</div>
+                        <div class="step-text">Kapı Açık</div>
+                    </div>
+                </div>
 
-                <h3>🌐 IoT Entegrasyonu</h3>
-                <ul>
-                    <li><strong>WiFi Modülü:</strong> ESP32 entegrasyonu</li>
-                    <li><strong>Bulut Depolama:</strong> Firebase/AWS bağlantısı</li>
-                    <li><strong>Mobil Uygulama:</strong> Android/iOS app</li>
-                    <li><strong>Web Dashboard:</strong> Uzaktan yönetim</li>
-                    <li><strong>MQTT Protokolü:</strong> IoT haberleşme</li>
-                </ul>
-
-                <h3>🔒 Güvenlik Artırımları</h3>
-                <ul>
-                    <li><strong>Blockchain:</strong> Erişim kayıtları</li>
-                    <li><strong>Şifreleme:</strong> AES-256 veri koruması</li>
-                    <li><strong>Biometrik Kombinasyon:</strong> Parmak izi + yüz</li>
-                    <li><strong>Anomali Tespiti:</strong> Şüpheli davranış analizi</li>
-                </ul>
-
-                <h3>⚡ Donanım Geliştirmeleri</h3>
-                <ul>
-                    <li><strong>Raspberry Pi:</strong> Daha güçlü işlemci</li>
-                    <li><strong>IR Kamera:</strong> Gece görüş desteği</li>
-                    <li><strong>Çoklu Servo:</strong> Daha fazla kapı kontrolü</li>
-                    <li><strong>Batarya Desteği:</strong> UPS sistemi</li>
-                </ul>
+                <!-- Sistem Metrikleri -->
+                <div class="flow-metrics">
+                    <h4>⚡ Gerçek Zamanlı Metrikler</h4>
+                    <div class="metric-item">
+                        <span class="metric-label">Tepki Süresi:</span>
+                        <span class="metric-value">1.99s</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-label">Başarı Oranı:</span>
+                        <span class="metric-value">97.8%</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-label">2FA Güvenlik:</span>
+                        <span class="metric-value">99.7%</span>
+                    </div>
+                </div>
             </div>
 
                         <!-- QR Kod ve Proje Bilgileri -->
