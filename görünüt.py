@@ -12,7 +12,7 @@ import serial
 from telebot import TeleBot
 
 # --- Telegram Bot Ayarları ---
-TELEGRAM_BOT_TOKEN = "8150520543:AAF5bAGwb6P7oCqZDPEcbHhnLRWo6Ju3V5A"
+TELEGRAM_BOT_TOKEN = ""
 bot = TeleBot(TELEGRAM_BOT_TOKEN)
 
 # Kayıtlı kullanıcı bilgileri
