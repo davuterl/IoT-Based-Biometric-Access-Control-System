@@ -17,9 +17,9 @@ bot = TeleBot(TELEGRAM_BOT_TOKEN)
 
 # Kayıtlı kullanıcı bilgileri
 registered_users = {
-    "Davut Erol": {"telegram_id": 8166383651, "group": 1, "last_sent_time": 0, "current_code": None},
-    "Ufuk Karan Soyoral": {"telegram_id": 1523773552, "group": 2, "last_sent_time": 0, "current_code": None},
-    "Anonim": {"telegram_id": 8166383651, "group": 3, "last_sent_time": 0, "current_code": None}
+    "Davut Erol": {"telegram_id": , "group": 1, "last_sent_time": 0, "current_code": None},
+    "Ufuk Karan Soyoral": {"telegram_id": , "group": 2, "last_sent_time": 0, "current_code": None},
+    "Anonim": {"telegram_id": , "group": 3, "last_sent_time": 0, "current_code": None}
 }
 
 # --- Arduino ile Seri İletişim ---
